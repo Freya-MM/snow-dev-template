@@ -53,7 +53,7 @@ export function executeLogin(userData) {
 		
 		let headers = getAuthorizedHeaders(userData);
 		// When
-		axios.post(url, headers).then(response => {
+		axios.post(url, userData).then(response => {
 			// Then
 			console.debug('loginActions: executeLogin <=> Response: ', response.data );
 			// Persist access token on local storage.

@@ -18,17 +18,23 @@ import { executeLogin } from '../../store/login/loginActions';
 export function LoginContainer() {
 	const dispatch = useDispatch();
 	const session = useSelector(store => store.session);
-	const [ user, setUser ] = useState({});
+	const [ username, setUsername ] = useState('');
+	const [ password, setPassword ] = useState('');
+
+	const onChangeHandler = (e) => {
+		e.preventDefault();
+		const input = e.target.name;
+
+		if (input === 'userName'){
+			setUsername(e.target.value);
+		} else {
+			setPassword(e.target.value); 
+		}
+		console.log(username);
+		console.log(password);
+	} 
 	
-	useEffect(() => {
-		dispatch(executeLogin({
-				username: 'snow',
-				password: 'sesame'
-			})
-		);
-	},[ dispatch ]);
-	
-	return <LoginComponent session={session} />;
+	return <LoginComponent session={session} onChangeHandler = {onChangeHandler} />;
 }
 
 /**

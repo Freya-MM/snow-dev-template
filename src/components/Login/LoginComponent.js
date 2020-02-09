@@ -11,15 +11,15 @@ import { Translate } from 'react-localize-redux';
 /** Import helpers section **/
 
 /** Import resources section **/
-
+ 
 function LoginComponent(props) {
 	return (
 		<div>
+
 			<h1>Login Component</h1>
-			<Translate id="login.isRequesting" />
-			{
-				props.session.get('is_requesting')
-			}
+			<input type="text" placeholder="User" name="userName" onChange={props.onChangeHandler}></input> <br/>
+			<input type="password" placeholder="Password" name="password" onChange={props.onChangeHandler}></input> <br/>
+			<button type="submit">Login</button>
 		</div>
 	);
 }
